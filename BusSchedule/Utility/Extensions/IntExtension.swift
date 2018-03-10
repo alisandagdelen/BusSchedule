@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension Int {
+    var dateFromTimeStamp: Date {
+        return Date(timeIntervalSince1970: TimeInterval(self))
+    }
+}
