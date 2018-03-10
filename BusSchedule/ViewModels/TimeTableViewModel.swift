@@ -7,22 +7,25 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 enum DateType {
     case arrival, departure
 }
 
 protocol TimeTableViewModelProtocol {
-    var timeTableDetails:Dynamic<[Date:[TimeTableDetails]]> { get }
-    var dates: [Date] { get }
+    var timeTableDetails:Dynamic<[String:[TimeTableDetails]]> { get }
+    var selectedDateType: Dynamic<DateType> { get }
+    var dates: [String] { get }
     var stationName :String { get }
-    func changeDateType(dateType: DateType)
+    func changeDateType()
 }
 
 class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     
-    var timeTableDetails: Dynamic<[Date : [TimeTableDetails]]>
-    var dates: [Date]
+    var timeTableDetails: Dynamic<[String : [TimeTableDetails]]>
+    var selectedDateType: Dynamic<DateType>
+    var dates: [String]
     var stationName :String {
         return city.description
     }
@@ -30,11 +33,16 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     private var dataService: BusScheduleApi
     private var city: City
     private var timeTable:TimeTable?
-    private var dateType:DateType
+    private var dateType:DateType {
+        didSet {
+            selectedDateType.value = dateType
+        }
+    }
     
-    init(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance, dateType:DateType = .arrival) {
+    init(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance, dateType:DateType = .departure) {
         self.dataService = dataService
         self.city = city
+        self.selectedDateType = Dynamic(dateType)
         self.dateType = dateType
         self.timeTableDetails = Dynamic([:])
         self.dates = []
@@ -44,33 +52,42 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     }
     
     private func getTimeTableDetails() {
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show()
+        
         dataService.getTimeTable(city: city) { (timetable, error) in
             if let timetable = timetable {
                 self.timeTable = timetable
                 self.fillTimeTable()
             }
+            SVProgressHUD.dismiss()
         }
     }
     
     private func fillTimeTable() {
         guard let timeTable = timeTable else { return }
-        let tableDetails = dateType == .arrival ? timeTable.arrivals : timeTable.departures
-        var tempTableDetails: [Date:[TimeTableDetails]] = [:]
+        let tableDetails = dateType == .departure ? timeTable.departures : timeTable.arrivals
+        var tempTableDetails: [String:[TimeTableDetails]] = [:]
+        dates = []
         
-        let uniqDates = Set(tableDetails.flatMap { $0.time?.timeStamp.dateFromTimeStamp })
-        dates = Array(uniqDates).sorted()
-        
+        tableDetails.forEach {
+            guard let date = $0.time?.dateFromTimeStampWithTimeZone else { return }
+            if !dates.contains(date) {
+                dates.append(date)
+            }
+        }
         dates.forEach { date in
-            let filteredTableDetail = tableDetails.filter { $0.time?.timeStamp.dateFromTimeStamp == date }
+            let filteredTableDetail = tableDetails.filter { $0.time?.dateFromTimeStampWithTimeZone == date }
             tempTableDetails[date] = filteredTableDetail
         }
-        
         timeTableDetails.value = tempTableDetails
     }
     
-    func changeDateType(dateType: DateType) {
-        self.dateType = dateType
+    func changeDateType() {
+        SVProgressHUD.show()
+        dateType = dateType == .arrival ? .departure : .arrival
         fillTimeTable()
+        SVProgressHUD.dismiss()
     }
     
 }
