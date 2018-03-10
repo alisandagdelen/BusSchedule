@@ -8,6 +8,7 @@ target 'BusSchedule' do
     pod 'ObjectMapper'
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper'
+    pod 'SVProgressHUD'
 
   target 'BusScheduleTests' do
     inherit! :search_paths
