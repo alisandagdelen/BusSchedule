@@ -32,7 +32,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qCQ-Y4-VfF"/>
+                    <navigationItem key="navigationItem" title="Stations" id="qCQ-Y4-VfF">
+                        <barButtonItem key="backBarButtonItem" title="Stations" id="ReR-t5-7G4"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tblStations" destination="Qop-ai-ipn" id="kTs-Yn-p16"/>
                     </connections>
@@ -48,9 +50,25 @@
                     <view key="view" contentMode="scaleToFill" id="obR-X4-0EE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-fG-QHr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y4L-b2-3xo" firstAttribute="bottom" secondItem="tQb-fG-QHr" secondAttribute="bottom" id="6K9-aA-nUE"/>
+                            <constraint firstItem="tQb-fG-QHr" firstAttribute="top" secondItem="Y4L-b2-3xo" secondAttribute="top" id="aqE-EZ-F1l"/>
+                            <constraint firstItem="tQb-fG-QHr" firstAttribute="leading" secondItem="Y4L-b2-3xo" secondAttribute="leading" id="wmD-z6-GEb"/>
+                            <constraint firstItem="Y4L-b2-3xo" firstAttribute="trailing" secondItem="tQb-fG-QHr" secondAttribute="trailing" id="xaN-Jg-GYU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y4L-b2-3xo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QvC-Ny-NO0"/>
+                    <connections>
+                        <outlet property="tblTimeTableDetails" destination="tQb-fG-QHr" id="AXt-lY-FqP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xw-Ba-hDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +84,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.38380265235900879" green="0.66349661350250244" blue="0.14147576689720154" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="16"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

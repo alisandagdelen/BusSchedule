@@ -31,7 +31,6 @@
 		3B1003D3205418B20078FE92 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D2205418B20078FE92 /* Dynamic.swift */; };
 		3B1003D520541E830078FE92 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D420541E830078FE92 /* DateExtension.swift */; };
 		3B1003D720541EA80078FE92 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D620541EA80078FE92 /* IntExtension.swift */; };
-		3B1003D920541F520078FE92 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D820541F520078FE92 /* StringExtension.swift */; };
 		3B1003DD205437680078FE92 /* TCellTimeTableDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */; };
 		3B1003DF205437830078FE92 /* TCellTimeTableDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */; };
 		3B1003E1205437AA0078FE92 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E0205437AA0078FE92 /* UIViewExtension.swift */; };
@@ -77,7 +76,6 @@
 		3B1003D2205418B20078FE92 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		3B1003D420541E830078FE92 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3B1003D620541EA80078FE92 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
-		3B1003D820541F520078FE92 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTimeTableDetails.swift; sourceTree = "<group>"; };
 		3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCellTimeTableDetails.xib; sourceTree = "<group>"; };
 		3B1003E0205437AA0078FE92 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 			children = (
 				3B1003D420541E830078FE92 /* DateExtension.swift */,
 				3B1003D620541EA80078FE92 /* IntExtension.swift */,
-				3B1003D820541F520078FE92 /* StringExtension.swift */,
 				3B1003E0205437AA0078FE92 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
@@ -453,12 +450,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -501,7 +500,6 @@
 				3B10038D2053CDFB0078FE92 /* AppDelegate.swift in Sources */,
 				3B1003D720541EA80078FE92 /* IntExtension.swift in Sources */,
 				3B1003D3205418B20078FE92 /* Dynamic.swift in Sources */,
-				3B1003D920541F520078FE92 /* StringExtension.swift in Sources */,
 				3B1003BC2053D3640078FE92 /* DateTime.swift in Sources */,
 				3B1003CC2054013D0078FE92 /* StationsViewModel.swift in Sources */,
 				3B1003D520541E830078FE92 /* DateExtension.swift in Sources */,
@@ -665,11 +663,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BE9CR5D8N;
 				INFOPLIST_FILE = "$(SRCROOT)/BusSchedule/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alisandagdelen.BusSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -681,11 +680,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BE9CR5D8N;
 				INFOPLIST_FILE = "$(SRCROOT)/BusSchedule/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alisandagdelen.BusSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
