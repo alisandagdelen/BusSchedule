@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StationsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        BusScheduleService.getTimeTable(city: .berlin) { (timeTable:TimeTable?, error:Error?) in
+            print(timeTable)
+        }
     }
 
     override func didReceiveMemoryWarning() {
