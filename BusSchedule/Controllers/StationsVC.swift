@@ -26,6 +26,7 @@ class StationsVC: UIViewController {
     func setupUI() {
         tblStations.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tblStations.tableFooterView = UIView.init(frame: CGRect.zero)
+        tblStations.delegate = self
         self.navigationItem.title = "Stations"
     }
     
@@ -41,7 +42,7 @@ class StationsVC: UIViewController {
     
     func presentTimeTableVC(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance) {
         
-        let timeTableVC = self.storyboard!.instantiateViewController(withIdentifier: String(describing: TimeInterval.self)) as! TimeTableVC
+        let timeTableVC = self.storyboard!.instantiateViewController(withIdentifier: String(describing: TimeTableVC.self)) as! TimeTableVC
         timeTableVC.timeTableViewModel = TimeTableViewModel(city: city, dataService: dataService, dateType: .arrival)
         self.navigationController?.pushViewController(timeTableVC, animated: true)
     }
@@ -49,6 +50,7 @@ class StationsVC: UIViewController {
 
 extension StationsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tblStations.deselectRow(at: indexPath, animated: false)
         let selectedCountry = stationsViewModel.countries[indexPath.section]
         guard let stations = stationsViewModel.stations[selectedCountry] else { return }
         let selectedCity = stations[indexPath.row]
