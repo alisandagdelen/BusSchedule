@@ -10,4 +10,7 @@ import UIKit
 
 class TCellTimeTableDetails: UITableViewCell {
     
+    @IBOutlet weak var lblHour: UILabel!
+    @IBOutlet weak var lblDirection: UILabel!
+    @IBOutlet weak var lblRoute: UILabel!
 }

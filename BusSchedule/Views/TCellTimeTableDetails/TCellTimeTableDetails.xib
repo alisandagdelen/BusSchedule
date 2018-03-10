@@ -6,19 +6,59 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TCellTimeTableDetails" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TCellTimeTableDetails" id="Zdp-cv-bnO" customClass="TCellTimeTableDetails" customModule="BusSchedule" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TCellTimeTableDetails" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TCellTimeTableDetails" rowHeight="116" id="Zdp-cv-bnO" customClass="TCellTimeTableDetails" customModule="BusSchedule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="116"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zdp-cv-bnO" id="g1N-Zt-fEQ">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="401" height="115.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcq-pZ-2tF">
+                        <rect key="frame" x="20" y="11" width="46.5" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46.5" id="oiz-fL-QUv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="tb0-qN-zeA">
+                        <rect key="frame" x="82" y="14" width="289" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-27-w6d">
+                        <rect key="frame" x="82" y="42" width="294" height="58"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tb0-qN-zeA" firstAttribute="leading" secondItem="dcq-pZ-2tF" secondAttribute="trailing" constant="15" id="G0M-ea-XDm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tb0-qN-zeA" secondAttribute="trailing" constant="10" id="LkB-Hd-1AJ"/>
+                    <constraint firstItem="RzR-27-w6d" firstAttribute="top" secondItem="tb0-qN-zeA" secondAttribute="bottom" constant="10" id="dqk-Jt-R9m"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="RzR-27-w6d" secondAttribute="trailing" constant="5" id="drQ-fd-emH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RzR-27-w6d" secondAttribute="bottom" constant="5" id="jPD-VM-MCa"/>
+                    <constraint firstItem="dcq-pZ-2tF" firstAttribute="leading" secondItem="g1N-Zt-fEQ" secondAttribute="leadingMargin" id="lz0-TK-6ba"/>
+                    <constraint firstItem="dcq-pZ-2tF" firstAttribute="top" secondItem="g1N-Zt-fEQ" secondAttribute="topMargin" id="o5o-sx-i5d"/>
+                    <constraint firstItem="RzR-27-w6d" firstAttribute="leading" secondItem="tb0-qN-zeA" secondAttribute="leading" id="u48-Wp-TbG"/>
+                    <constraint firstItem="tb0-qN-zeA" firstAttribute="centerY" secondItem="dcq-pZ-2tF" secondAttribute="centerY" id="uah-kh-xzO"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="21" y="-35"/>
+            <connections>
+                <outlet property="lblDirection" destination="tb0-qN-zeA" id="ahq-5v-bN3"/>
+                <outlet property="lblHour" destination="dcq-pZ-2tF" id="jO8-WO-Ww7"/>
+                <outlet property="lblRoute" destination="RzR-27-w6d" id="0UK-tx-zrk"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="1"/>
         </tableViewCell>
     </objects>
 </document>
