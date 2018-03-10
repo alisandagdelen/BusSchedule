@@ -7,3 +7,34 @@
 //
 
 import Foundation
+
+enum City: Int {
+    case berlin = 1
+    case munich = 10
+    
+    var description: String {
+        switch self {
+        case .berlin: return "Berlin"
+        case .munich: return "Munich"
+        }
+    }
+}
+
+protocol BusScheduleApi {
+    func getTimeTable(city: City, _ result:@escaping GenericObjectClosure<TimeTable>)
+}
+
+class BusScheduleService: BusScheduleApi {
+    static let sharedInstance = BusScheduleService()
+    
+    private init() {
+    }
+    
+    func getTimeTable(city: City, _ result: @escaping (TimeTable?, Error?) -> Void) {
+        let pathUrl = String(format: ApiURL.getTimeTable, city.rawValue)
+        
+        WebService.sharedInstance.getObject(pathUrl: pathUrl) { (busScheduleResponse: BusScheduleResponse?, error:Error?) in
+            result(busScheduleResponse?.timeTable, error)
+        }
+    }
+}
