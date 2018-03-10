@@ -6,4 +6,8 @@
 //  Copyright © 2018 alisandagdelen. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TCellTimeTableDetails: UITableViewCell {
+    
+}
