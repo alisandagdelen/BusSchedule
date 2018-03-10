@@ -15,6 +15,7 @@ enum DateType {
 protocol TimeTableViewModelProtocol {
     var timeTableDetails:Dynamic<[Date:[TimeTableDetails]]> { get }
     var dates: [Date] { get }
+    var stationName :String { get }
     func changeDateType(dateType: DateType)
 }
 
@@ -22,6 +23,9 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     
     var timeTableDetails: Dynamic<[Date : [TimeTableDetails]]>
     var dates: [Date]
+    var stationName :String {
+        return city.description
+    }
     
     private var dataService: BusScheduleApi
     private var city: City
@@ -53,8 +57,9 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
         let tableDetails = dateType == .arrival ? timeTable.arrivals : timeTable.departures
         var tempTableDetails: [Date:[TimeTableDetails]] = [:]
         
-        dates = tableDetails.flatMap{ $0.time?.timeStamp.dateFromTimeStamp }
-     
+        let uniqDates = Set(tableDetails.flatMap { $0.time?.timeStamp.dateFromTimeStamp })
+        dates = Array(uniqDates).sorted()
+        
         dates.forEach { date in
             let filteredTableDetail = tableDetails.filter { $0.time?.timeStamp.dateFromTimeStamp == date }
             tempTableDetails[date] = filteredTableDetail
