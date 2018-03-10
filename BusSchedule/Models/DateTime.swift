@@ -14,10 +14,14 @@ struct DateTime: BaseModel {
     var timeStamp: Int = 0
     var timeZone: String = ""
     
-    var fromTimeStampWithTimeZone: Date {
-        let date = Date(timeIntervalSince1970: TimeInterval(timeStamp))
-        
-        return date
+    var hourFromTimeStampWithTimeZone: String {
+        let date = timeStamp.dateFromTimeStamp
+        return date.hourForTimeZone(timeZone)
+    }
+    
+    var dateFromTimeStampWithTimeZone: String {
+        let date = timeStamp.dateFromTimeStamp
+        return date.calenderDateForTimeZone(timeZone)
     }
     
     init?(map: Map) {
