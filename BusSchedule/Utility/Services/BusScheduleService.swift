@@ -14,8 +14,8 @@ enum City: Int {
     
     var description: String {
         switch self {
-        case .berlin: return "Berlin"
-        case .munich: return "Munich"
+        case .berlin: return "Berlin ZOB"
+        case .munich: return "Munich ZOB"
         }
     }
 }
