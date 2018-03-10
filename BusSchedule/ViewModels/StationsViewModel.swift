@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+enum Country {
+    case germany
+    
+    var description: String {
+        switch self {
+        case .germany: return "Germany"
+        }
+    }
+}
+
+protocol StationsViewModelProtocol {
+    var countries: [Country] { get }
+    var stations: [Country:[City]] { get }
+}
+
+class StationsViewModel: NSObject, StationsViewModelProtocol {
+    
+    var countries: [Country] {
+        return [.germany]
+    }
+    var stations: [Country : [City]] {
+        return [.germany:[.berlin, .munich]]
+    }
+}
