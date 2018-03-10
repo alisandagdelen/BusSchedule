@@ -15,7 +15,7 @@ struct TimeTableDetails: BaseModel {
     var direction: String = ""
     var time: DateTime? = nil
     var briefRoute: String = ""
-    var routeDetails : [RouteDetais] = []
+    var routeDetails : [RouteDetails] = []
     
     init?(map: Map) {
     }

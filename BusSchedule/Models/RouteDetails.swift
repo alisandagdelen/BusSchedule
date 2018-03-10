@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct RouteDetais: BaseModel {
+struct RouteDetails: BaseModel {
     
     var id: Int = 0
     var name: String = ""
