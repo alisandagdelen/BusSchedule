@@ -7,12 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343005893FA458356FE4E30F /* Pods_BusScheduleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B63B769CE22F5DEF3C6AFF2 /* Pods_BusScheduleTests.framework */; };
 		3B10038D2053CDFB0078FE92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B10038C2053CDFB0078FE92 /* AppDelegate.swift */; };
-		3B10038F2053CDFB0078FE92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B10038E2053CDFB0078FE92 /* ViewController.swift */; };
+		3B10038F2053CDFB0078FE92 /* StationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B10038E2053CDFB0078FE92 /* StationsVC.swift */; };
 		3B1003922053CDFB0078FE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003902053CDFB0078FE92 /* Main.storyboard */; };
 		3B1003942053CDFB0078FE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003932053CDFB0078FE92 /* Assets.xcassets */; };
 		3B1003972053CDFB0078FE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003952053CDFB0078FE92 /* LaunchScreen.storyboard */; };
 		3B1003A22053CDFB0078FE92 /* BusScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003A12053CDFB0078FE92 /* BusScheduleTests.swift */; };
+		3B1003B12053CFD60078FE92 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B02053CFD60078FE92 /* WebService.swift */; };
+		3B1003B42053D0BB0078FE92 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B32053D0BB0078FE92 /* ApiConstants.swift */; };
+		3B1003B62053D17B0078FE92 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B52053D17B0078FE92 /* BaseModel.swift */; };
+		3B1003B82053D1E70078FE92 /* BusScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B72053D1E70078FE92 /* BusScheduleService.swift */; };
+		3B1003BA2053D2600078FE92 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B92053D2600078FE92 /* TimeTable.swift */; };
+		3B1003BC2053D3640078FE92 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003BB2053D3640078FE92 /* DateTime.swift */; };
+		3B1003BE2053DBB80078FE92 /* RouteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003BD2053DBB80078FE92 /* RouteDetails.swift */; };
+		3B1003C02053DC310078FE92 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003BF2053DC310078FE92 /* Coordinates.swift */; };
+		3B1003C22053DDA10078FE92 /* BusScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003C12053DDA10078FE92 /* BusScheduleResponse.swift */; };
+		3B1003C42053DE4C0078FE92 /* TimeTableDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003C32053DE4C0078FE92 /* TimeTableDetails.swift */; };
+		3B1003C92053F0880078FE92 /* TableViewDataSourceWithSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003C82053F0880078FE92 /* TableViewDataSourceWithSection.swift */; };
+		3B1003CC2054013D0078FE92 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003CB2054013D0078FE92 /* StationsViewModel.swift */; };
+		3B1003CE20540E5D0078FE92 /* TimeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003CD20540E5D0078FE92 /* TimeTableVC.swift */; };
+		3B1003D1205412A00078FE92 /* TimeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D0205412A00078FE92 /* TimeTableViewModel.swift */; };
+		3B1003D3205418B20078FE92 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D2205418B20078FE92 /* Dynamic.swift */; };
+		3B1003D520541E830078FE92 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D420541E830078FE92 /* DateExtension.swift */; };
+		3B1003D720541EA80078FE92 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D620541EA80078FE92 /* IntExtension.swift */; };
+		3B1003D920541F520078FE92 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003D820541F520078FE92 /* StringExtension.swift */; };
+		3B1003DD205437680078FE92 /* TCellTimeTableDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */; };
+		3B1003DF205437830078FE92 /* TCellTimeTableDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */; };
+		3B1003E1205437AA0078FE92 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E0205437AA0078FE92 /* UIViewExtension.swift */; };
+		64662494D0F20779DBFB1812 /* Pods_BusSchedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9BB9DDBEFA2CF78C50A9F1 /* Pods_BusSchedule.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B63B769CE22F5DEF3C6AFF2 /* Pods_BusScheduleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusScheduleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1003892053CDFB0078FE92 /* BusSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B10038C2053CDFB0078FE92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B10038E2053CDFB0078FE92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B10038E2053CDFB0078FE92 /* StationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsVC.swift; sourceTree = "<group>"; };
 		3B1003912053CDFB0078FE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B1003932053CDFB0078FE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B1003962053CDFB0078FE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +60,32 @@
 		3B10039D2053CDFB0078FE92 /* BusScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1003A12053CDFB0078FE92 /* BusScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusScheduleTests.swift; sourceTree = "<group>"; };
 		3B1003A32053CDFB0078FE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B1003B02053CFD60078FE92 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		3B1003B32053D0BB0078FE92 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		3B1003B52053D17B0078FE92 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		3B1003B72053D1E70078FE92 /* BusScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusScheduleService.swift; sourceTree = "<group>"; };
+		3B1003B92053D2600078FE92 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		3B1003BB2053D3640078FE92 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
+		3B1003BD2053DBB80078FE92 /* RouteDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetails.swift; sourceTree = "<group>"; };
+		3B1003BF2053DC310078FE92 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		3B1003C12053DDA10078FE92 /* BusScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusScheduleResponse.swift; sourceTree = "<group>"; };
+		3B1003C32053DE4C0078FE92 /* TimeTableDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDetails.swift; sourceTree = "<group>"; };
+		3B1003C82053F0880078FE92 /* TableViewDataSourceWithSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceWithSection.swift; sourceTree = "<group>"; };
+		3B1003CB2054013D0078FE92 /* StationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
+		3B1003CD20540E5D0078FE92 /* TimeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVC.swift; sourceTree = "<group>"; };
+		3B1003D0205412A00078FE92 /* TimeTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewModel.swift; sourceTree = "<group>"; };
+		3B1003D2205418B20078FE92 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		3B1003D420541E830078FE92 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		3B1003D620541EA80078FE92 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		3B1003D820541F520078FE92 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTimeTableDetails.swift; sourceTree = "<group>"; };
+		3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCellTimeTableDetails.xib; sourceTree = "<group>"; };
+		3B1003E0205437AA0078FE92 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		6D9BB9DDBEFA2CF78C50A9F1 /* Pods_BusSchedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusSchedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86543199A494B856C48D0E96 /* Pods-BusSchedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusSchedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule.debug.xcconfig"; sourceTree = "<group>"; };
+		93AEDCDE3CC0BBB89F342605 /* Pods-BusScheduleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusScheduleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusScheduleTests/Pods-BusScheduleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB3F103C891F8F6284310A1F /* Pods-BusScheduleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusScheduleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusScheduleTests/Pods-BusScheduleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E31BEB5F71EEED1A680061BD /* Pods-BusSchedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusSchedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64662494D0F20779DBFB1812 /* Pods_BusSchedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343005893FA458356FE4E30F /* Pods_BusScheduleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +114,8 @@
 				3B10038B2053CDFB0078FE92 /* BusSchedule */,
 				3B1003A02053CDFB0078FE92 /* BusScheduleTests */,
 				3B10038A2053CDFB0078FE92 /* Products */,
+				853CEA29F6462711315BF5A0 /* Pods */,
+				BE0E7223AAB4400A729095AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +131,13 @@
 		3B10038B2053CDFB0078FE92 /* BusSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				3B10038C2053CDFB0078FE92 /* AppDelegate.swift */,
-				3B10038E2053CDFB0078FE92 /* ViewController.swift */,
+				3B1003DA205437500078FE92 /* Views */,
+				3B1003CA205401220078FE92 /* ViewModels */,
+				3B1003C72053EB550078FE92 /* Controllers */,
+				3B1003AE2053CE700078FE92 /* Utility */,
+				3B1003AD2053CE580078FE92 /* Models */,
+				3B1003AC2053CE150078FE92 /* Supporting Files */,
 				3B1003902053CDFB0078FE92 /* Main.storyboard */,
-				3B1003932053CDFB0078FE92 /* Assets.xcassets */,
-				3B1003952053CDFB0078FE92 /* LaunchScreen.storyboard */,
-				3B1003982053CDFB0078FE92 /* Info.plist */,
 			);
 			path = BusSchedule;
 			sourceTree = "<group>";
@@ -96,6 +151,126 @@
 			path = BusScheduleTests;
 			sourceTree = "<group>";
 		};
+		3B1003AC2053CE150078FE92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B10038C2053CDFB0078FE92 /* AppDelegate.swift */,
+				3B1003932053CDFB0078FE92 /* Assets.xcassets */,
+				3B1003952053CDFB0078FE92 /* LaunchScreen.storyboard */,
+				3B1003982053CDFB0078FE92 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B1003AD2053CE580078FE92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003B52053D17B0078FE92 /* BaseModel.swift */,
+				3B1003B92053D2600078FE92 /* TimeTable.swift */,
+				3B1003BB2053D3640078FE92 /* DateTime.swift */,
+				3B1003BD2053DBB80078FE92 /* RouteDetails.swift */,
+				3B1003BF2053DC310078FE92 /* Coordinates.swift */,
+				3B1003C12053DDA10078FE92 /* BusScheduleResponse.swift */,
+				3B1003C32053DE4C0078FE92 /* TimeTableDetails.swift */,
+				3B1003D2205418B20078FE92 /* Dynamic.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3B1003AE2053CE700078FE92 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003CF20540E870078FE92 /* Extensions */,
+				3B1003B22053D0AB0078FE92 /* Helpers */,
+				3B1003AF2053CE7A0078FE92 /* Services */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3B1003AF2053CE7A0078FE92 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003B02053CFD60078FE92 /* WebService.swift */,
+				3B1003B72053D1E70078FE92 /* BusScheduleService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3B1003B22053D0AB0078FE92 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003B32053D0BB0078FE92 /* ApiConstants.swift */,
+				3B1003C82053F0880078FE92 /* TableViewDataSourceWithSection.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B1003C72053EB550078FE92 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B10038E2053CDFB0078FE92 /* StationsVC.swift */,
+				3B1003CD20540E5D0078FE92 /* TimeTableVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3B1003CA205401220078FE92 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003CB2054013D0078FE92 /* StationsViewModel.swift */,
+				3B1003D0205412A00078FE92 /* TimeTableViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3B1003CF20540E870078FE92 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003D420541E830078FE92 /* DateExtension.swift */,
+				3B1003D620541EA80078FE92 /* IntExtension.swift */,
+				3B1003D820541F520078FE92 /* StringExtension.swift */,
+				3B1003E0205437AA0078FE92 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3B1003DA205437500078FE92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003DB205437570078FE92 /* TCellTimeTableDetails */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3B1003DB205437570078FE92 /* TCellTimeTableDetails */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */,
+				3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */,
+			);
+			path = TCellTimeTableDetails;
+			sourceTree = "<group>";
+		};
+		853CEA29F6462711315BF5A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86543199A494B856C48D0E96 /* Pods-BusSchedule.debug.xcconfig */,
+				E31BEB5F71EEED1A680061BD /* Pods-BusSchedule.release.xcconfig */,
+				93AEDCDE3CC0BBB89F342605 /* Pods-BusScheduleTests.debug.xcconfig */,
+				DB3F103C891F8F6284310A1F /* Pods-BusScheduleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE0E7223AAB4400A729095AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D9BB9DDBEFA2CF78C50A9F1 /* Pods_BusSchedule.framework */,
+				0B63B769CE22F5DEF3C6AFF2 /* Pods_BusScheduleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B1003A62053CDFB0078FE92 /* Build configuration list for PBXNativeTarget "BusSchedule" */;
 			buildPhases = (
+				4279E07034E41990E8140D33 /* [CP] Check Pods Manifest.lock */,
 				3B1003852053CDFB0078FE92 /* Sources */,
 				3B1003862053CDFB0078FE92 /* Frameworks */,
 				3B1003872053CDFB0078FE92 /* Resources */,
+				F856B0454D3B2F28984CDA4E /* [CP] Embed Pods Frameworks */,
+				2A2E476731D52F49EA4CB452 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +298,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B1003A92053CDFB0078FE92 /* Build configuration list for PBXNativeTarget "BusScheduleTests" */;
 			buildPhases = (
+				54E27E959242DB89176905CD /* [CP] Check Pods Manifest.lock */,
 				3B1003992053CDFB0078FE92 /* Sources */,
 				3B10039A2053CDFB0078FE92 /* Frameworks */,
 				3B10039B2053CDFB0078FE92 /* Resources */,
+				FC411867F489B1B2283777E0 /* [CP] Embed Pods Frameworks */,
+				06DD10241C2B6499340FF9BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,6 +363,7 @@
 				3B1003972053CDFB0078FE92 /* LaunchScreen.storyboard in Resources */,
 				3B1003942053CDFB0078FE92 /* Assets.xcassets in Resources */,
 				3B1003922053CDFB0078FE92 /* Main.storyboard in Resources */,
+				3B1003DF205437830078FE92 /* TCellTimeTableDetails.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,13 +376,139 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06DD10241C2B6499340FF9BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusScheduleTests/Pods-BusScheduleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A2E476731D52F49EA4CB452 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4279E07034E41990E8140D33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusSchedule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54E27E959242DB89176905CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusScheduleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F856B0454D3B2F28984CDA4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC411867F489B1B2283777E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusScheduleTests/Pods-BusScheduleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B1003852053CDFB0078FE92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B10038F2053CDFB0078FE92 /* ViewController.swift in Sources */,
+				3B1003B42053D0BB0078FE92 /* ApiConstants.swift in Sources */,
+				3B1003B12053CFD60078FE92 /* WebService.swift in Sources */,
+				3B1003E1205437AA0078FE92 /* UIViewExtension.swift in Sources */,
+				3B1003C42053DE4C0078FE92 /* TimeTableDetails.swift in Sources */,
+				3B1003C92053F0880078FE92 /* TableViewDataSourceWithSection.swift in Sources */,
+				3B1003BA2053D2600078FE92 /* TimeTable.swift in Sources */,
+				3B10038F2053CDFB0078FE92 /* StationsVC.swift in Sources */,
+				3B1003DD205437680078FE92 /* TCellTimeTableDetails.swift in Sources */,
+				3B1003D1205412A00078FE92 /* TimeTableViewModel.swift in Sources */,
+				3B1003CE20540E5D0078FE92 /* TimeTableVC.swift in Sources */,
+				3B1003B82053D1E70078FE92 /* BusScheduleService.swift in Sources */,
 				3B10038D2053CDFB0078FE92 /* AppDelegate.swift in Sources */,
+				3B1003D720541EA80078FE92 /* IntExtension.swift in Sources */,
+				3B1003D3205418B20078FE92 /* Dynamic.swift in Sources */,
+				3B1003D920541F520078FE92 /* StringExtension.swift in Sources */,
+				3B1003BC2053D3640078FE92 /* DateTime.swift in Sources */,
+				3B1003CC2054013D0078FE92 /* StationsViewModel.swift in Sources */,
+				3B1003D520541E830078FE92 /* DateExtension.swift in Sources */,
+				3B1003BE2053DBB80078FE92 /* RouteDetails.swift in Sources */,
+				3B1003C22053DDA10078FE92 /* BusScheduleResponse.swift in Sources */,
+				3B1003B62053D17B0078FE92 /* BaseModel.swift in Sources */,
+				3B1003C02053DC310078FE92 /* Coordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +659,12 @@
 		};
 		3B1003A72053CDFB0078FE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86543199A494B856C48D0E96 /* Pods-BusSchedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BE9CR5D8N;
-				INFOPLIST_FILE = BusSchedule/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BusSchedule/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alisandagdelen.BusSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,11 +675,12 @@
 		};
 		3B1003A82053CDFB0078FE92 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E31BEB5F71EEED1A680061BD /* Pods-BusSchedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BE9CR5D8N;
-				INFOPLIST_FILE = BusSchedule/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BusSchedule/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alisandagdelen.BusSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +691,7 @@
 		};
 		3B1003AA2053CDFB0078FE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93AEDCDE3CC0BBB89F342605 /* Pods-BusScheduleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -398,6 +709,7 @@
 		};
 		3B1003AB2053CDFB0078FE92 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB3F103C891F8F6284310A1F /* Pods-BusScheduleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
