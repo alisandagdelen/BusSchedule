@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import ObjectMapper
+
+struct BusScheduleResponse: BaseModel {
+    
+    var timeTable: TimeTable? = nil
+
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        timeTable   <- map["timetable"]
+    }
+}

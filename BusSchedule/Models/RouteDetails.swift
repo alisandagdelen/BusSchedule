@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import ObjectMapper
+
+struct RouteDetais: BaseModel {
+    
+    var id: Int = 0
+    var name: String = ""
+    var address: String = ""
+    var fullAddress: String = ""
+    var coordinates: Coordinates? = nil
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        id           <- map["id"]
+        name         <- map["name"]
+        address      <- map["address"]
+        fullAddress  <- map["full_address"]
+        coordinates  <- map["coordinates"]
+    }
+}
