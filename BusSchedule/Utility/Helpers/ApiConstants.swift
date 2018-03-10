@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+
+enum ApiURL {
+    static let baseURL = "http://api.mobile.staging.mfb.io/"
+    static let getTimeTable = "mobile/v1/network/station/%d/timetable"
+}
+
+enum ApiHeader {
+    static let authHeaderKey = "X-Api-Authentication"
+    static let authHeaderValue = "intervIEW_TOK3n"
+}
