@@ -27,7 +27,6 @@ class StationsVC: UIViewController {
         tblStations.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tblStations.tableFooterView = UIView.init(frame: CGRect.zero)
         tblStations.delegate = self
-        self.navigationItem.title = "Stations"
     }
     
     func fillUI() {
@@ -43,7 +42,7 @@ class StationsVC: UIViewController {
     func presentTimeTableVC(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance) {
         
         let timeTableVC = self.storyboard!.instantiateViewController(withIdentifier: String(describing: TimeTableVC.self)) as! TimeTableVC
-        timeTableVC.timeTableViewModel = TimeTableViewModel(city: city, dataService: dataService, dateType: .arrival)
+        timeTableVC.timeTableViewModel = TimeTableViewModel(city: city, dataService: dataService, dateType: .departure)
         self.navigationController?.pushViewController(timeTableVC, animated: true)
     }
 }
