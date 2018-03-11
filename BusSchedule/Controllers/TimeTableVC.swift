@@ -29,18 +29,23 @@ class TimeTableVC: UIViewController {
         
         tblTimeTableDetails.register(UINib(nibName: TCellTimeTableDetails.nibName, bundle: nil), forCellReuseIdentifier: TCellTimeTableDetails.nibName)
         tblTimeTableDetails.tableFooterView = UIView.init(frame: CGRect.zero)
-        print(timeTableViewModel.selectedDateType.value)
+        tblTimeTableDetails.allowsSelection = false;
     }
     
+    // MARK: Data binding to UI elements
     func fillUI() {
         
+        // TableView fill
         timeTableViewModel.timeTableDetails.bind { [unowned self] timeTableDetails in
             let dates = self.timeTableViewModel.dates
+            
             self.dataSource = TableViewDataSourceWithSection<TCellTimeTableDetails, String, TimeTableDetails>(cellIdentifier: TCellTimeTableDetails.nibName, sections: dates, items: timeTableDetails, configureCell
                 : { (cell, timeTableDetails) in
+                    
                     cell.lblHour.text = timeTableDetails.time?.hourFromTimeStampWithTimeZone
                     cell.lblRoute.text = timeTableDetails.briefRoute
                     cell.lblDirection.text = "Line \(timeTableDetails.lineNumber) direction \(timeTableDetails.direction)"
+                    
             }, configureSection: { (titleLabel:UILabel, date:String) in
                 titleLabel.text = date
             })
@@ -48,9 +53,9 @@ class TimeTableVC: UIViewController {
             self.tblTimeTableDetails.reloadData()
         }
         
+        // Button configure
         timeTableViewModel.selectedDateType.bind { [unowned self] in
             self.navigationItem.rightBarButtonItem?.image = $0 == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival")
-            print($0)
         }
     }
     
