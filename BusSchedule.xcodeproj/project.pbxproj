@@ -13,7 +13,6 @@
 		3B1003922053CDFB0078FE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003902053CDFB0078FE92 /* Main.storyboard */; };
 		3B1003942053CDFB0078FE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003932053CDFB0078FE92 /* Assets.xcassets */; };
 		3B1003972053CDFB0078FE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003952053CDFB0078FE92 /* LaunchScreen.storyboard */; };
-		3B1003A22053CDFB0078FE92 /* BusScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003A12053CDFB0078FE92 /* BusScheduleTests.swift */; };
 		3B1003B12053CFD60078FE92 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B02053CFD60078FE92 /* WebService.swift */; };
 		3B1003B42053D0BB0078FE92 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B32053D0BB0078FE92 /* ApiConstants.swift */; };
 		3B1003B62053D17B0078FE92 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003B52053D17B0078FE92 /* BaseModel.swift */; };
@@ -34,6 +33,14 @@
 		3B1003DD205437680078FE92 /* TCellTimeTableDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */; };
 		3B1003DF205437830078FE92 /* TCellTimeTableDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */; };
 		3B1003E1205437AA0078FE92 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E0205437AA0078FE92 /* UIViewExtension.swift */; };
+		3B1003E320554FC40078FE92 /* StationsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E220554FC40078FE92 /* StationsVCTests.swift */; };
+		3B1003E72055500E0078FE92 /* BusServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E62055500E0078FE92 /* BusServiceMock.swift */; };
+		3B1003E9205561130078FE92 /* TimeTableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003E8205561130078FE92 /* TimeTableMock.swift */; };
+		3B1003EB205565DD0078FE92 /* TimeTableViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003EA205565DD0078FE92 /* TimeTableViewModelTest.swift */; };
+		3B1003ED20556DF20078FE92 /* DateTimeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003EC20556DF20078FE92 /* DateTimeTest.swift */; };
+		3B1003EF205571E20078FE92 /* StationsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003EE205571E20078FE92 /* StationsViewModelMock.swift */; };
+		3B1003F52055959B0078FE92 /* TimeTableViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003F42055959B0078FE92 /* TimeTableViewModelMock.swift */; };
+		3B1003F7205598010078FE92 /* TimeTableVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1003F6205598010078FE92 /* TimeTableVCTests.swift */; };
 		64662494D0F20779DBFB1812 /* Pods_BusSchedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9BB9DDBEFA2CF78C50A9F1 /* Pods_BusSchedule.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +64,6 @@
 		3B1003962053CDFB0078FE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B1003982053CDFB0078FE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B10039D2053CDFB0078FE92 /* BusScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B1003A12053CDFB0078FE92 /* BusScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusScheduleTests.swift; sourceTree = "<group>"; };
 		3B1003A32053CDFB0078FE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1003B02053CFD60078FE92 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		3B1003B32053D0BB0078FE92 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
@@ -79,6 +85,14 @@
 		3B1003DC205437680078FE92 /* TCellTimeTableDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTimeTableDetails.swift; sourceTree = "<group>"; };
 		3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCellTimeTableDetails.xib; sourceTree = "<group>"; };
 		3B1003E0205437AA0078FE92 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3B1003E220554FC40078FE92 /* StationsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsVCTests.swift; sourceTree = "<group>"; };
+		3B1003E62055500E0078FE92 /* BusServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusServiceMock.swift; sourceTree = "<group>"; };
+		3B1003E8205561130078FE92 /* TimeTableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableMock.swift; sourceTree = "<group>"; };
+		3B1003EA205565DD0078FE92 /* TimeTableViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewModelTest.swift; sourceTree = "<group>"; };
+		3B1003EC20556DF20078FE92 /* DateTimeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeTest.swift; sourceTree = "<group>"; };
+		3B1003EE205571E20078FE92 /* StationsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModelMock.swift; sourceTree = "<group>"; };
+		3B1003F42055959B0078FE92 /* TimeTableViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewModelMock.swift; sourceTree = "<group>"; };
+		3B1003F6205598010078FE92 /* TimeTableVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVCTests.swift; sourceTree = "<group>"; };
 		6D9BB9DDBEFA2CF78C50A9F1 /* Pods_BusSchedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusSchedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86543199A494B856C48D0E96 /* Pods-BusSchedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusSchedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusSchedule/Pods-BusSchedule.debug.xcconfig"; sourceTree = "<group>"; };
 		93AEDCDE3CC0BBB89F342605 /* Pods-BusScheduleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusScheduleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusScheduleTests/Pods-BusScheduleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +157,8 @@
 		3B1003A02053CDFB0078FE92 /* BusScheduleTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B1003A12053CDFB0078FE92 /* BusScheduleTests.swift */,
+				3B1003E520554FE90078FE92 /* Tests */,
+				3B1003E420554FDD0078FE92 /* Mocks */,
 				3B1003A32053CDFB0078FE92 /* Info.plist */,
 			);
 			path = BusScheduleTests;
@@ -246,6 +261,28 @@
 				3B1003DE205437830078FE92 /* TCellTimeTableDetails.xib */,
 			);
 			path = TCellTimeTableDetails;
+			sourceTree = "<group>";
+		};
+		3B1003E420554FDD0078FE92 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003E62055500E0078FE92 /* BusServiceMock.swift */,
+				3B1003E8205561130078FE92 /* TimeTableMock.swift */,
+				3B1003EE205571E20078FE92 /* StationsViewModelMock.swift */,
+				3B1003F42055959B0078FE92 /* TimeTableViewModelMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3B1003E520554FE90078FE92 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3B1003E220554FC40078FE92 /* StationsVCTests.swift */,
+				3B1003EC20556DF20078FE92 /* DateTimeTest.swift */,
+				3B1003EA205565DD0078FE92 /* TimeTableViewModelTest.swift */,
+				3B1003F6205598010078FE92 /* TimeTableVCTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		853CEA29F6462711315BF5A0 /* Pods */ = {
@@ -514,7 +551,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1003A22053CDFB0078FE92 /* BusScheduleTests.swift in Sources */,
+				3B1003EF205571E20078FE92 /* StationsViewModelMock.swift in Sources */,
+				3B1003E72055500E0078FE92 /* BusServiceMock.swift in Sources */,
+				3B1003EB205565DD0078FE92 /* TimeTableViewModelTest.swift in Sources */,
+				3B1003E320554FC40078FE92 /* StationsVCTests.swift in Sources */,
+				3B1003F7205598010078FE92 /* TimeTableVCTests.swift in Sources */,
+				3B1003F52055959B0078FE92 /* TimeTableViewModelMock.swift in Sources */,
+				3B1003ED20556DF20078FE92 /* DateTimeTest.swift in Sources */,
+				3B1003E9205561130078FE92 /* TimeTableMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
