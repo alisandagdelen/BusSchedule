@@ -86,8 +86,9 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     func changeDateType() {
         SVProgressHUD.show()
         dateType = dateType == .arrival ? .departure : .arrival
-        fillTimeTable()
-        SVProgressHUD.dismiss()
+        DispatchQueue.main.async {
+            self.fillTimeTable()
+            SVProgressHUD.dismiss()
+        }
     }
-    
 }
