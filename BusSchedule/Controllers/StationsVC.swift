@@ -9,17 +9,19 @@
 import UIKit
 
 class StationsVC: UIViewController {
-
+    
     @IBOutlet weak var tblStations: UITableView!
     
     private var dataSource: TableViewDataSourceWithSection<UITableViewCell, Country, City>!
     var stationsViewModel: StationsViewModelProtocol!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if stationsViewModel == nil {
+            stationsViewModel = StationsViewModel()
+        }
         setupUI()
-        stationsViewModel = StationsViewModel()
         fillUI()
     }
     
