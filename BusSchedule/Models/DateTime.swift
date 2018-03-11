@@ -14,6 +14,7 @@ struct DateTime: BaseModel {
     var timeStamp: Int = 0
     var timeZone: String = ""
     
+    // MARK: Date Modifiers
     var hourFromTimeStampWithTimeZone: String {
         let date = timeStamp.dateFromTimeStamp
         return date.hourForTimeZone(timeZone)
@@ -24,6 +25,7 @@ struct DateTime: BaseModel {
         return date.calenderDateForTimeZone(timeZone)
     }
     
+    // MARK: Initializer
     init?(map: Map) {
     }
     
@@ -32,6 +34,7 @@ struct DateTime: BaseModel {
         self.timeZone = timeZone
     }
     
+    // MARK: Mapping
     mutating func mapping(map: Map) {
         timeStamp <- map["timestamp"]
         timeZone  <- map["tz"]

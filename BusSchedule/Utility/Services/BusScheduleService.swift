@@ -30,6 +30,7 @@ class BusScheduleService: BusScheduleApi {
     private init() {
     }
     
+    // MARK: Get Methods
     func getTimeTable(city: City, _ result: @escaping (TimeTable?, Error?) -> Void) {
         let pathUrl = String(format: ApiURL.getTimeTable, city.rawValue)
         

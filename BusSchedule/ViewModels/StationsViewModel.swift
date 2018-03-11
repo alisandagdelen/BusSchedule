@@ -23,6 +23,7 @@ protocol StationsViewModelProtocol {
     var stations: [Country:[City]] { get }
 }
 
+// There is no endpoint for stations because of this StationsViewModel is static.
 class StationsViewModel: NSObject, StationsViewModelProtocol {
     
     var countries: [Country] {

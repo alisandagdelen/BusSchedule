@@ -10,16 +10,22 @@ import UIKit
 
 class TimeTableVC: UIViewController {
     
+    // MARK: Properties
+    
     @IBOutlet weak var tblTimeTableDetails: UITableView!
     var timeTableViewModel:TimeTableViewModelProtocol!
     
     private var dataSource: TableViewDataSourceWithSection<TCellTimeTableDetails, String, TimeTableDetails>!
+    
+    // MARK: Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         fillUI()
     }
+    
+    // MARK: UI Setup Methods
     
     func setupUI() {
         self.navigationItem.title = timeTableViewModel.stationName
@@ -32,7 +38,8 @@ class TimeTableVC: UIViewController {
         tblTimeTableDetails.allowsSelection = false;
     }
     
-    // MARK: Data binding to UI elements
+    // MARK: Binding
+    
     func fillUI() {
         
         // TableView fill
@@ -58,6 +65,8 @@ class TimeTableVC: UIViewController {
             self.navigationItem.rightBarButtonItem?.image = $0 == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival")
         }
     }
+    
+    // MARK: Button Actions
     
     @objc func changeDateType(_ sender:UIButton) {
         timeTableViewModel.changeDateType()

@@ -23,6 +23,7 @@ protocol TimeTableViewModelProtocol {
 
 class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     
+    // MARK: Public Properties
     var timeTableDetails: Dynamic<[String : [TimeTableDetails]]>
     var selectedDateType: Dynamic<DateType>
     var dates: [String]
@@ -30,6 +31,7 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
         return city.description
     }
     
+    // MARK: Private Properties
     private var dataService: BusScheduleApi
     private var city: City
     private var timeTable:TimeTable?
@@ -38,6 +40,8 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
             selectedDateType.value = dateType
         }
     }
+    
+    // MARK: Initializer
     
     init(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance, dateType:DateType = .departure) {
         self.dataService = dataService
@@ -51,6 +55,8 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
         getTimeTableDetails()
     }
     
+    // MARK: Service Methods
+    
     private func getTimeTableDetails() {
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show()
@@ -63,6 +69,8 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
             SVProgressHUD.dismiss()
         }
     }
+    
+    // MARK: Model Modify Methods
     
     private func fillTimeTable() {
         guard let timeTable = timeTable else { return }

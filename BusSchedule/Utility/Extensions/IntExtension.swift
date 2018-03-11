@@ -9,6 +9,7 @@
 import Foundation
 
 extension Int {
+    // MARK: Return Date
     var dateFromTimeStamp: Date {
         return Date(timeIntervalSince1970: TimeInterval(self))
     }

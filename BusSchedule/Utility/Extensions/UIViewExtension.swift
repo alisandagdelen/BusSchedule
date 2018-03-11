@@ -10,10 +10,12 @@ import UIKit
 
 extension UIView {
     
+    // MARK: Return String
     static var nibName: String {
         return String(describing: self)
     }
     
+    // MARK: Return UIView
     static var fromNib: UIView? {
         let nib = UINib(nibName:nibName, bundle:nil)
         let view = nib.instantiate(withOwner: nil, options: nil).first as? UIView
