@@ -20,6 +20,14 @@ struct TimeTableDetails: BaseModel {
     init?(map: Map) {
     }
     
+    init(lineNumber: String, direction: String, time:DateTime, briefRoute:String, routeDetails:[RouteDetails]) {
+        self.lineNumber = lineNumber
+        self.direction = direction
+        self.time = time
+        self.briefRoute = briefRoute
+        self.routeDetails = routeDetails
+    }
+    
     mutating func mapping(map: Map) {
         lineNumber    <- map["line_code"]
         direction     <- map["direction"]

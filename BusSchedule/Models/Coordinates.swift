@@ -17,6 +17,11 @@ struct Coordinates: BaseModel {
     init?(map: Map) {
     }
     
+    init(latitude: Float, longitude: Float) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     mutating func mapping(map: Map) {
         latitude   <- map["latitude"]
         longitude  <- map["longitude"]

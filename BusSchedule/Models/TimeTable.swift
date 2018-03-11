@@ -17,6 +17,11 @@ struct TimeTable: BaseModel {
     init?(map: Map) {
     }
     
+    init(arrivals: [TimeTableDetails], departures: [TimeTableDetails]) {
+        self.arrivals = arrivals
+        self.departures = departures
+    }
+    
     mutating func mapping(map: Map) {
         arrivals   <- map["arrivals"]
         departures <- map["departures"]

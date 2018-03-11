@@ -20,6 +20,14 @@ struct RouteDetails: BaseModel {
     init?(map: Map) {
     }
     
+    init(id: Int, name: String, address: String, fullAddress: String, coordinates: Coordinates) {
+        self.id = id
+        self.name = name
+        self.address = address
+        self.fullAddress = fullAddress
+        self.coordinates = coordinates
+    }
+    
     mutating func mapping(map: Map) {
         id           <- map["id"]
         name         <- map["name"]

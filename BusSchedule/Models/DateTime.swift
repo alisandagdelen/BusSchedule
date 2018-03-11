@@ -27,6 +27,11 @@ struct DateTime: BaseModel {
     init?(map: Map) {
     }
     
+    init(timeStamp: Int, timeZone:String) {
+        self.timeStamp = timeStamp
+        self.timeZone = timeZone
+    }
+    
     mutating func mapping(map: Map) {
         timeStamp <- map["timestamp"]
         timeZone  <- map["tz"]
