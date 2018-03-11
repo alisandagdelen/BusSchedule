@@ -278,9 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				3B1003E220554FC40078FE92 /* StationsVCTests.swift */,
+				3B1003F6205598010078FE92 /* TimeTableVCTests.swift */,
 				3B1003EC20556DF20078FE92 /* DateTimeTest.swift */,
 				3B1003EA205565DD0078FE92 /* TimeTableViewModelTest.swift */,
-				3B1003F6205598010078FE92 /* TimeTableVCTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
