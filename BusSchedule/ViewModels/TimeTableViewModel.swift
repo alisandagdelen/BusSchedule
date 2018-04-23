@@ -8,15 +8,16 @@
 
 import Foundation
 import SVProgressHUD
+import RxSwift
+import RxDataSources
 
 enum DateType {
     case arrival, departure
 }
 
 protocol TimeTableViewModelProtocol {
-    var timeTableDetails:Dynamic<[String:[TimeTableDetails]]> { get }
-    var selectedDateType: Dynamic<DateType> { get }
-    var dates: [String] { get }
+    var timeTableDetails:Variable<[SectionModel<String, TimeTableDetails>]> { get }
+    var selectedDateType: BehaviorSubject<DateType> { get }
     var stationName :String { get }
     func changeDateType()
 }
@@ -24,9 +25,8 @@ protocol TimeTableViewModelProtocol {
 class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     
     // MARK: Public Properties
-    var timeTableDetails: Dynamic<[String : [TimeTableDetails]]>
-    var selectedDateType: Dynamic<DateType>
-    var dates: [String]
+    var timeTableDetails: Variable<[SectionModel<String, TimeTableDetails>]>
+    var selectedDateType: BehaviorSubject<DateType>
     var stationName :String {
         return city.description
     }
@@ -37,7 +37,7 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     private var timeTable:TimeTable?
     private var dateType:DateType {
         didSet {
-            selectedDateType.value = dateType
+            selectedDateType.onNext(dateType)
         }
     }
     
@@ -46,10 +46,9 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     init(city:City, dataService:BusScheduleApi = BusScheduleService.sharedInstance, dateType:DateType = .departure) {
         self.dataService = dataService
         self.city = city
-        self.selectedDateType = Dynamic(dateType)
+        self.selectedDateType = BehaviorSubject<DateType>(value: dateType)
         self.dateType = dateType
-        self.timeTableDetails = Dynamic([:])
-        self.dates = []
+        self.timeTableDetails = Variable([])
         self.timeTable = nil
         super.init()
         getTimeTableDetails()
@@ -75,18 +74,16 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     private func fillTimeTable() {
         guard let timeTable = timeTable else { return }
         let tableDetails = dateType == .departure ? timeTable.departures : timeTable.arrivals
-        var tempTableDetails: [String:[TimeTableDetails]] = [:]
-        dates = []
+        var tempTableDetails: [SectionModel<String, TimeTableDetails>] = []
+        var listedDates:[String] = []
         
         tableDetails.forEach {
             guard let date = $0.time?.dateFromTimeStampWithTimeZone else { return }
-            if !dates.contains(date) {
-                dates.append(date)
+            if !listedDates.contains(date) {
+                let filteredTableDetail = tableDetails.filter { $0.time?.dateFromTimeStampWithTimeZone == date }
+                tempTableDetails.append(SectionModel(model: date, items: filteredTableDetail))
+                listedDates.append(date)
             }
-        }
-        dates.forEach { date in
-            let filteredTableDetail = tableDetails.filter { $0.time?.dateFromTimeStampWithTimeZone == date }
-            tempTableDetails[date] = filteredTableDetail
         }
         timeTableDetails.value = tempTableDetails
     }
@@ -94,9 +91,31 @@ class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     func changeDateType() {
         SVProgressHUD.show()
         dateType = dateType == .arrival ? .departure : .arrival
-        DispatchQueue.global(qos: .userInitiated).async {
+       
+        let fillTimeTableGroup = DispatchGroup()
+        fillTimeTableGroup.enter()
+        DispatchQueue(label: "com.busSchedule.timeTable", qos: .background, attributes: .concurrent).async {
             self.fillTimeTable()
+            fillTimeTableGroup.leave()
+        }
+        fillTimeTableGroup.notify(queue: .main) {
             SVProgressHUD.dismiss()
         }
+        
+        // Alternative with workItem
+        
+        /*
+        let fillTimeTableWork = DispatchWorkItem {
+            self.fillTimeTable()
+        }
+        
+        let concurrentQueue = DispatchQueue(label: "com.busSchedule.timeTable", qos: .background, attributes: .concurrent)
+        
+        concurrentQueue.async(execute: fillTimeTableWork)
+        
+        fillTimeTableWork.notify(queue: .main) {
+            SVProgressHUD.dismiss()
+        }
+         */
     }
 }
