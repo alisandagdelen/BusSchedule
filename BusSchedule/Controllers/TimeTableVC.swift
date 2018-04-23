@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import RxDataSources
 
 class TimeTableVC: UIViewController {
     
@@ -15,8 +17,7 @@ class TimeTableVC: UIViewController {
     
     @IBOutlet weak var tblTimeTableDetails: UITableView!
     var timeTableViewModel:TimeTableViewModelProtocol!
-    
-    private var dataSource: TableViewDataSourceWithSection<TCellTimeTableDetails, String, TimeTableDetails>!
+    let disposeBag = DisposeBag()
     
     // MARK: Lifecycle Methods
     
@@ -29,10 +30,18 @@ class TimeTableVC: UIViewController {
     // MARK: UI Setup Methods
     
     func setupUI() {
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: nil)
+        
         self.navigationItem.title = timeTableViewModel.stationName
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        let rightBarButtonImage = timeTableViewModel.selectedDateType.value == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightBarButtonImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(changeDateType(_:)))
+        
+        //        let backgroundQ = ConcurrentDispatchQueueScheduler(qos: .background)
+        self.navigationItem.rightBarButtonItem?.rx.tap
+            //            .observeOn(backgroundQ)
+            .bind(onNext: { [unowned self] in
+                self.timeTableViewModel.changeDateType()
+            }).disposed(by: disposeBag)
         
         tblTimeTableDetails.register(UINib(nibName: TCellTimeTableDetails.nibName, bundle: nil), forCellReuseIdentifier: TCellTimeTableDetails.nibName)
         tblTimeTableDetails.tableFooterView = UIView.init(frame: CGRect.zero)
@@ -43,33 +52,37 @@ class TimeTableVC: UIViewController {
     
     func fillUI() {
         
-        // TableView fill
-        timeTableViewModel.timeTableDetails.bind { [unowned self] timeTableDetails in
-            let dates = self.timeTableViewModel.dates
-            
-            self.dataSource = TableViewDataSourceWithSection<TCellTimeTableDetails, String, TimeTableDetails>(cellIdentifier: TCellTimeTableDetails.nibName, sections: dates, items: timeTableDetails, configureCell
-                : { (cell, timeTableDetails) in
-                    
-                    cell.lblHour.text = timeTableDetails.time?.hourFromTimeStampWithTimeZone
-                    cell.lblRoute.text = timeTableDetails.briefRoute
-                    cell.lblDirection.text = "Line \(timeTableDetails.lineNumber) direction \(timeTableDetails.direction)"
-                    
-            }, configureSection: { (titleLabel:UILabel, date:String) in
-                titleLabel.text = date
-            })
-            self.tblTimeTableDetails.dataSource = self.dataSource
-            self.tblTimeTableDetails.reloadData()
-        }
+        timeTableViewModel.selectedDateType
+            .map { $0 == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival") }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] in
+                self.navigationItem.rightBarButtonItem?.image = $0
+            }).disposed(by: disposeBag)
         
-        // Button configure
-        timeTableViewModel.selectedDateType.bind { [unowned self] in
-            self.navigationItem.rightBarButtonItem?.image = $0 == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival")
-        }
+        // TableView fill
+        
+        timeTableViewModel.timeTableDetails.asObservable()
+            .bind(to: tblTimeTableDetails.rx.items(dataSource: configureDataSource()))
+            .disposed(by: disposeBag)
     }
     
-    // MARK: Button Actions
+    // MARK: TableViewConfig
     
-    @objc func changeDateType(_ sender:UIButton) {
-        timeTableViewModel.changeDateType()
+    func configureDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, TimeTableDetails>> {
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, TimeTableDetails>>(
+            configureCell: { (_, tv, ip, timeTableDetails: TimeTableDetails) in
+                let cell = tv.dequeueReusableCell(withIdentifier: TCellTimeTableDetails.nibName) as! TCellTimeTableDetails
+                cell.lblHour.text = timeTableDetails.time?.hourFromTimeStampWithTimeZone
+                cell.lblRoute.text = timeTableDetails.briefRoute
+                cell.lblDirection.text = "Line \(timeTableDetails.lineNumber) direction \(timeTableDetails.direction)"
+                
+                return cell
+        },
+            titleForHeaderInSection: { dataSource, sectionIndex in
+                return dataSource[sectionIndex].model
+        })
+        
+        return dataSource
     }
 }
