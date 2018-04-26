@@ -7,18 +7,14 @@
 //
 
 import Foundation
-import ObjectMapper
 
 struct TimeTableDetails: BaseModel {
     
-    var lineNumber: String = ""
-    var direction: String = ""
+    var lineNumber: String? = ""
+    var direction: String? = ""
     var time: DateTime? = nil
-    var briefRoute: String = ""
-    var routeDetails : [RouteDetails] = []
-    
-    init?(map: Map) {
-    }
+    var briefRoute: String? = ""
+    var routeDetails : [RouteDetails?] = []
     
     init(lineNumber: String, direction: String, time:DateTime, briefRoute:String, routeDetails:[RouteDetails]) {
         self.lineNumber = lineNumber
@@ -28,11 +24,11 @@ struct TimeTableDetails: BaseModel {
         self.routeDetails = routeDetails
     }
     
-    mutating func mapping(map: Map) {
-        lineNumber    <- map["line_code"]
-        direction     <- map["direction"]
-        time           <- map["datetime"]
-        briefRoute    <- map["through_the_stations"]
-        routeDetails  <- map["route"]
+    enum CodingKeys: String, CodingKey {
+        case lineNumber = "line_code"
+        case direction
+        case time = "datetime"
+        case briefRoute = "through_the_stations"
+        case routeDetails = "route"
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
 
 struct RouteDetails: BaseModel {
     
@@ -17,9 +16,6 @@ struct RouteDetails: BaseModel {
     var fullAddress: String = ""
     var coordinates: Coordinates? = nil
     
-    init?(map: Map) {
-    }
-    
     init(id: Int, name: String, address: String, fullAddress: String, coordinates: Coordinates) {
         self.id = id
         self.name = name
@@ -28,11 +24,11 @@ struct RouteDetails: BaseModel {
         self.coordinates = coordinates
     }
     
-    mutating func mapping(map: Map) {
-        id           <- map["id"]
-        name         <- map["name"]
-        address      <- map["address"]
-        fullAddress  <- map["full_address"]
-        coordinates  <- map["coordinates"]
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case address
+        case fullAddress = "full_address"
+        case coordinates
     }
 }

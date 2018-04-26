@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-protocol BaseModel: Mappable {
+protocol BaseModel: Codable {
     
 }
 

@@ -7,23 +7,15 @@
 //
 
 import Foundation
-import ObjectMapper
 
 struct TimeTable: BaseModel {
     
     var arrivals: [TimeTableDetails] = []
     var departures: [TimeTableDetails] = []
     
-    init?(map: Map) {
-    }
-    
     init(arrivals: [TimeTableDetails], departures: [TimeTableDetails]) {
         self.arrivals = arrivals
         self.departures = departures
     }
-    
-    mutating func mapping(map: Map) {
-        arrivals   <- map["arrivals"]
-        departures <- map["departures"]
-    }
 }
+
