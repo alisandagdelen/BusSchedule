@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxDataSources
 @testable import BusSchedule
 
 class TimeTableViewModelTest: XCTestCase {
@@ -31,7 +32,6 @@ class TimeTableViewModelTest: XCTestCase {
     func testNilsAfterInit() {
         let timeTableViewModel = TimeTableViewModel(city: .berlin, dataService: dataService, dateType: .arrival)
         
-        XCTAssertNotNil(timeTableViewModel.dates, "Dates should not be nill after initialize")
         XCTAssertNotNil(timeTableViewModel.stationName, "StationName should not be nill after initialize")
         XCTAssertNotNil(timeTableViewModel.selectedDateType.value, "SelectedDateType should not be nill after initialize")
         XCTAssertNotNil(timeTableViewModel.timeTableDetails.value, "TimeTableDetails should not be nill after initialize")
@@ -41,45 +41,60 @@ class TimeTableViewModelTest: XCTestCase {
         dataService.timeTable = TimeTableMock.timeTableTwo
         let timeTableViewModel = TimeTableViewModel(city: .berlin, dataService: dataService, dateType: .arrival)
         let dateAndTimeTable = fillTimeTable(dateType: .arrival, timeTable: TimeTableMock.timeTableTwo)
-        
-        XCTAssertEqual(timeTableViewModel.dates, dateAndTimeTable.dates)
-        XCTAssertEqual(timeTableViewModel.timeTableDetails.value.count, dateAndTimeTable.tableDetails.count)
+        var equals:[SectionModel<String, TimeTableDetails>] = []
+        dateAndTimeTable.forEach { dateAndTime in
+            equals = timeTableViewModel.timeTableDetails.value.filter { $0.model == dateAndTime.model }.filter { $0.items == dateAndTime.items}
+        }
+      
+        XCTAssertEqual(equals.count, dateAndTimeTable.count)
+        XCTAssertEqual(equals.count, timeTableViewModel.timeTableDetails.value.count)
+        XCTAssertEqual(timeTableViewModel.timeTableDetails.value.count, dateAndTimeTable.count)
     }
     
     func testFillTimeTableForDeparture() {
         dataService.timeTable = TimeTableMock.timeTableTwo
         let timeTableViewModel = TimeTableViewModel(city: .berlin, dataService: dataService, dateType: .departure)
         let dateAndTimeTable = fillTimeTable(dateType: .departure, timeTable: TimeTableMock.timeTableTwo)
-        
-        XCTAssertEqual(timeTableViewModel.dates, dateAndTimeTable.dates)
-        XCTAssertEqual(timeTableViewModel.timeTableDetails.value.count, dateAndTimeTable.tableDetails.count)
+        var equals:[SectionModel<String, TimeTableDetails>] = []
+        dateAndTimeTable.forEach { dateAndTime in
+            equals = timeTableViewModel.timeTableDetails.value.filter { $0.model == dateAndTime.model }.filter { $0.items == dateAndTime.items}
+        }
+       
+        XCTAssertEqual(equals.count, dateAndTimeTable.count)
+        XCTAssertEqual(equals.count, timeTableViewModel.timeTableDetails.value.count)
+        XCTAssertEqual(timeTableViewModel.timeTableDetails.value.count, dateAndTimeTable.count)
     }
     
     func testChangeDateType() {
          let timeTableViewModel = TimeTableViewModel(city: .berlin, dataService: dataService, dateType: .departure)
         timeTableViewModel.changeDateType()
-        XCTAssertNotEqual(timeTableViewModel.selectedDateType.value, DateType.departure)
+        XCTAssertNotEqual(try? timeTableViewModel.selectedDateType.value(), DateType.departure)
 
     }
     
-    func fillTimeTable(dateType:DateType, timeTable:TimeTable) -> (dates: [String],tableDetails:[String : [TimeTableDetails]]) {
+    func fillTimeTable(dateType:DateType, timeTable:TimeTable) -> [SectionModel<String, TimeTableDetails>] {
         
         let tableDetails = dateType == .departure ? timeTable.departures : timeTable.arrivals
-        
-        var tempTableDetails: [String:[TimeTableDetails]] = [:]
-        var dates:[String] = []
+        var tempTableDetails: [SectionModel<String, TimeTableDetails>] = []
+        var listedDates:[String] = []
         
         tableDetails.forEach {
             guard let date = $0.time?.dateFromTimeStampWithTimeZone else { return }
-            if !dates.contains(date) {
-                dates.append(date)
+            if !listedDates.contains(date) {
+                let filteredTableDetail = tableDetails.filter { $0.time?.dateFromTimeStampWithTimeZone == date }
+                tempTableDetails.append(SectionModel(model: date, items: filteredTableDetail))
+                listedDates.append(date)
             }
         }
-        dates.forEach { date in
-            let filteredTableDetail = tableDetails.filter { $0.time?.dateFromTimeStampWithTimeZone == date }
-            tempTableDetails[date] = filteredTableDetail
-        }
-        return (dates: dates, tableDetails: tempTableDetails)
+        return tempTableDetails
+    }
+    
+}
+
+extension TimeTableDetails : Equatable {
+    
+    static public func ==(lhs:TimeTableDetails,rhs:TimeTableDetails) -> Bool {
+        return lhs.direction == rhs.direction && lhs.briefRoute == rhs.briefRoute && lhs.lineNumber == rhs.lineNumber
     }
     
 }

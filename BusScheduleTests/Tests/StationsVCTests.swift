@@ -43,7 +43,7 @@ class StationsVCTests: XCTestCase {
     
     func testDidSelectRow() {
         let indexPath = IndexPath(row: 1, section: 0)
-        stationsVC.tableView(stationsVC.tblStations, didSelectRowAt: indexPath)
+        stationsVC.tblStations.delegate!.tableView!(stationsVC.tblStations, didSelectRowAt: indexPath)
         XCTAssertEqual(stationsVC.navigationController!.topViewController!, stationsVC)
     }
     
@@ -52,8 +52,7 @@ class StationsVCTests: XCTestCase {
     }
     
     func testTableViewConfromsToTableViewDelegateProtocol() {
-        XCTAssertTrue(stationsVC.conforms(to: UITableViewDelegate.self))
-        XCTAssertTrue(stationsVC.responds(to: #selector(stationsVC.tableView(_:didSelectRowAt:))))
+        XCTAssertTrue((stationsVC.tblStations.delegate?.conforms(to: UITableViewDelegate.self))!)
     }
     
     func testTableViewHasDataSource() {
@@ -61,11 +60,11 @@ class StationsVCTests: XCTestCase {
     }
     
     func testTableViewSectionSet() {
-        XCTAssertEqual(stationsVC.tblStations.numberOfSections, stationsViewModel.countries.count)
+        XCTAssertEqual(stationsVC.tblStations.numberOfSections, stationsViewModel.stations.value.count)
     }
     
     func testTableViewRowSet() {
-        XCTAssertEqual(stationsVC.tblStations.numberOfRows(inSection: 0), stationsViewModel.stations[stationsViewModel.countries[0]]?.count)
+        XCTAssertEqual(stationsVC.tblStations.numberOfRows(inSection: 0), stationsViewModel.stations.value[0].items.count)
     }
     
 }

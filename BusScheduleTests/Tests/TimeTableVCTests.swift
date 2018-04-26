@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxSwift
 @testable import BusSchedule
 
 class TimeTableVCTests: XCTestCase {
@@ -50,27 +51,28 @@ class TimeTableVCTests: XCTestCase {
     }
     
     func testChangeDateType() {
-        timeTableVC.changeDateType(UIButton())
-        
-        XCTAssertNotEqual(timeTableViewModel.selectedDateType.value, timeTableVC.timeTableViewModel.selectedDateType.value)
+        timeTableVC.timeTableViewModel.changeDateType()
+        let selectedDateTypeBeforeChange = try! timeTableViewModel.selectedDateType.value()
+        let selectedDateTypeAfterChange = try! timeTableVC.timeTableViewModel.selectedDateType.value()
+        XCTAssertNotEqual(selectedDateTypeBeforeChange, selectedDateTypeAfterChange)
     }
     
     func testRightBarButtonImageChange() {
-        let barButtonImage = timeTableVC.timeTableViewModel.selectedDateType.value == .arrival ? #imageLiteral(resourceName: "arrival") : #imageLiteral(resourceName: "departure")
-
-        timeTableVC.changeDateType(UIButton())
+        let dateTypeBeforeChange = try! timeTableVC.timeTableViewModel.selectedDateType.value()
+        let imageBeforeChange = dateTypeBeforeChange == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival")
         
-        XCTAssertNotEqual(barButtonImage, timeTableVC.navigationItem.rightBarButtonItem?.image)
+        timeTableVC.timeTableViewModel.changeDateType()
+        
+        XCTAssertNotEqual(imageBeforeChange, timeTableVC.navigationItem.rightBarButtonItem?.image)
     }
     
     func testTableViewSectionSet() {
-        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfSections, timeTableViewModel.dates.count)
+        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfSections, timeTableViewModel.timeTableDetails.value.count)
     }
     
     func testTableViewRowSet() {
-        let timeTableDetails = timeTableViewModel.timeTableDetails.value
-        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfRows(inSection: 0), timeTableDetails[timeTableViewModel.dates[0]]?.count)
-        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfRows(inSection: 1), timeTableDetails[timeTableViewModel.dates[1]]?.count)
+        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfRows(inSection: 0), timeTableViewModel.timeTableDetails.value[0].items.count)
+        XCTAssertEqual(timeTableVC.tblTimeTableDetails.numberOfRows(inSection: 1), timeTableViewModel.timeTableDetails.value[1].items.count)
     }
     
     
