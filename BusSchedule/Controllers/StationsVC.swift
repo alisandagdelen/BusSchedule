@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 class StationsVC: UIViewController {
     
@@ -16,6 +19,7 @@ class StationsVC: UIViewController {
     
     private var dataSource: TableViewDataSourceWithSection<UITableViewCell, Country, City>!
     var stationsViewModel: StationsViewModelProtocol!
+    let disposeBag = DisposeBag()
     
     // MARK: Lifecycle Methods
     
@@ -34,20 +38,33 @@ class StationsVC: UIViewController {
     func setupUI() {
         tblStations.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tblStations.tableFooterView = UIView.init(frame: CGRect.zero)
-        tblStations.delegate = self
     }
     
     // MARK: Binding
     
     func fillUI() {
         // TableView fill
-        self.dataSource = TableViewDataSourceWithSection<UITableViewCell, Country, City>(cellIdentifier: "cell", sections: stationsViewModel.countries, items: stationsViewModel.stations, configureCell: { (cell, stationsName) in
-            cell.textLabel?.text = stationsName.description
-        }, configureSection: { (titleLabel, country) in
-            titleLabel.text = country.description
-        })
-        tblStations.dataSource = dataSource
-        tblStations.reloadData()
+        
+        stationsViewModel.stations.asObservable()
+            .bind(to: tblStations.rx.items(dataSource: configureDataSource()))
+            .disposed(by: disposeBag)
+        
+        // TableView didSelect rx solution
+        
+        tblStations.rx.itemSelected
+            .map { [unowned self] indexPath in
+                return (indexPath, self.stationsViewModel.stations.value[indexPath.section].items[indexPath.row])
+            }
+            .subscribe(onNext: { [unowned self] (indexPath, selectedCity) in
+                self.tblStations.deselectRow(at: indexPath, animated: false)
+                self.presentTimeTableVC(city: selectedCity)
+            }).disposed(by: disposeBag)
+        
+        //        tblStations.rx.modelSelected(City.self)
+        //            .subscribe(onNext: { [unowned self] (selectedCity) in
+        //                print(selectedCity)
+        //                self.presentTimeTableVC(city: selectedCity)
+        //            }).disposed(by: disposeBag)
     }
     
     // MARK: Navigation Methods
@@ -58,17 +75,21 @@ class StationsVC: UIViewController {
         timeTableVC.timeTableViewModel = TimeTableViewModel(city: city, dataService: dataService, dateType: .departure)
         self.navigationController?.pushViewController(timeTableVC, animated: true)
     }
-}
-
-// MARK: TableView delegate Methods
-
-extension StationsVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tblStations.deselectRow(at: indexPath, animated: false)
-        let selectedCountry = stationsViewModel.countries[indexPath.section]
-        guard let stations = stationsViewModel.stations[selectedCountry] else { return }
-        let selectedCity = stations[indexPath.row]
-        presentTimeTableVC(city: selectedCity)
+    
+    // TableView Configure
+    
+    func configureDataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, City>> {
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, City>>(
+            configureCell: { (_, tv, ip, stationsName: City) in
+                let cell = tv.dequeueReusableCell(withIdentifier: "cell")!
+                cell.textLabel?.text = stationsName.description
+                return cell
+        },
+            titleForHeaderInSection: { dataSource, sectionIndex in
+                return dataSource[sectionIndex].model
+        })
+        
+        return dataSource
     }
 }
-
