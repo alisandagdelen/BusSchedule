@@ -7,25 +7,29 @@
 //
 
 import Foundation
+import RxSwift
+import RxDataSources
+
 @testable import BusSchedule
 
 class TimeTableViewModelMock: TimeTableViewModelProtocol {
-    var timeTableDetails: Dynamic<[String : [TimeTableDetails]]>
-    
-    var selectedDateType: Dynamic<DateType>
+    var timeTableDetails: Variable<[SectionModel<String, TimeTableDetails>]>
+    var selectedDateType: BehaviorSubject<DateType>
+    let disposedBag = DisposeBag()
     
     var dates: [String]
     
     var stationName: String
     
     init(dateType:DateType) {
-        self.selectedDateType = Dynamic(dateType)
+        self.selectedDateType = BehaviorSubject(value: dateType)
         self.stationName = "testStation"
         self.dates = ["testDateOne", "testDateTwo"]
-        self.timeTableDetails = Dynamic([dates.first!:[TimeTableMock.timeTableOne.arrivals.first!], dates.last!:[TimeTableMock.timeTableTwo.arrivals.first!]])
+        self.timeTableDetails = Variable([SectionModel(model: dates.first!, items: TimeTableMock.timeTableOne.arrivals), SectionModel(model: dates.last!, items: TimeTableMock.timeTableTwo.arrivals)])
     }
     
     func changeDateType() {
-        selectedDateType.value = selectedDateType.value == DateType.arrival ? DateType.departure : DateType.arrival
+        let selectedDate = try! selectedDateType.value()
+        selectedDateType.onNext(selectedDate == DateType.arrival ? DateType.departure : DateType.arrival)
     }
 }

@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+import RxDataSources
+
 @testable import BusSchedule
 
 class StationsViewModelMock: StationsViewModelProtocol {
     
-    var countries: [Country] {
-        return [.germany]
-    }
-    var stations: [Country : [City]] {
-        return [.germany:[.berlin, .munich]]
-    }
+    var stations = Variable([ SectionModel(model: Country.germany.description, items: [City.berlin, City.munich]) ])
+    
 }
