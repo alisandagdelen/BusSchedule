@@ -53,6 +53,7 @@ class TimeTableVC: UIViewController {
     func fillUI() {
         
         timeTableViewModel.selectedDateType
+            .distinctUntilChanged()
             .map { $0 == .departure ? #imageLiteral(resourceName: "departure") : #imageLiteral(resourceName: "arrival") }
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] in
