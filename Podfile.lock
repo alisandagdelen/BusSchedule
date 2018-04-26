@@ -1,37 +1,30 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+  - Alamofire (4.7.2)
   - Differentiator (3.0.2)
-  - ObjectMapper (3.0.0)
-  - RxCocoa (4.0.0):
+  - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxDataSources (3.0.2):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
-  - SVProgressHUD (2.2.2)
+  - RxSwift (4.1.2)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - AlamofireObjectMapper
-  - ObjectMapper
+  - Alamofire
   - RxCocoa (~> 4.0)
   - RxDataSources (~> 3.0)
   - RxSwift (~> 4.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: ee77e00aada89efd95ba7513c5305ed3f8ea7198
+PODFILE CHECKSUM: c3086b3cadb9ea723d89f5c43fa00edf25add48c
 
 COCOAPODS: 1.3.1

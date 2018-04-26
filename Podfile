@@ -4,10 +4,8 @@
 target 'BusSchedule' do
   
   use_frameworks!
-    
-    pod 'ObjectMapper'
-    pod 'ObjectMapper'
-    pod 'AlamofireObjectMapper'
+  
+    pod 'Alamofire'
     pod 'SVProgressHUD'
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
