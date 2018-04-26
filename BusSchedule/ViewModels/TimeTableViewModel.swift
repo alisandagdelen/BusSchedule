@@ -22,7 +22,7 @@ protocol TimeTableViewModelProtocol {
     func changeDateType()
 }
 
-class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
+final class TimeTableViewModel: NSObject, TimeTableViewModelProtocol {
     
     // MARK: Public Properties
     var timeTableDetails: Variable<[SectionModel<String, TimeTableDetails>]>

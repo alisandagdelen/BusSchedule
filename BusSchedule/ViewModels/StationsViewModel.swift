@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxDataSources
+import RxSwift
 
 enum Country {
     case germany
@@ -19,17 +21,16 @@ enum Country {
 }
 
 protocol StationsViewModelProtocol {
-    var countries: [Country] { get }
-    var stations: [Country:[City]] { get }
+    var stations: Variable<[SectionModel<String, City>]> { get }
 }
 
 // There is no endpoint for stations because of this StationsViewModel is static.
-class StationsViewModel: NSObject, StationsViewModelProtocol {
+final class StationsViewModel: NSObject, StationsViewModelProtocol {
     
-    var countries: [Country] {
-        return [.germany]
-    }
-    var stations: [Country : [City]] {
-        return [.germany:[.berlin, .munich]]
+    var stations: Variable<[SectionModel<String, City>]>
+    
+    override init() {
+        stations = Variable([ SectionModel(model: Country.germany.description, items: [.berlin, .munich]) ])
+        super.init()
     }
 }
